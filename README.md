@@ -1,6 +1,6 @@
 #SketchList
 
-Video Demo: https://youtube.com/shorts/PHiNtx5Ur_k?feature=share
+Video Demo: (https://rumble.com/v6xbdsy-sketchlist-project.html>)
 Description: As stated above, my project is a SketchList.
 My project was simply motivated by the Notes App on my iPhone. From time to time, I enjoy the simple act of drawing and thus the incorporation of having a TODO that lets you sketch out your thoughts while having the option to type if you please. In order to maximize the efficiency of my application, I got assistance from ChatGPT as well as my favorite, cs50.ai. I appreciate the guidance the apps gave me in making the completion of my project possible.
 
