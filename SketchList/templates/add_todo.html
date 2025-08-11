@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <h2>Add Todo</h2>
+
+    <!-- Save the drawing when form is submitted after todo is written. -->
+    <form method="post" onsubmit="saveDrawing()">
+        <div class="input-group mb-3">
+            <label class="form-label">Title:</label>
+            <input name="title" placeholder="Title">
+            <br>
+            <label class="form-label">Todo:</label>
+            <textarea name="description" placeholder="Description"></textarea>
+        </div>
+        <!-- Give the user an option to draw in any color if they please for their todo list.-->
+        <div class="mb-3">
+            <label class="form-label">Sketch (optional):</label>
+                <!-- Drawing tools for user -->
+                <div class="mb-3">
+                    <label class="form-label">Color:
+                    <input id="colorPicker" type="color" value="#000000">
+                    </label>
+                    <label class="form-label">Thickness: 
+                    <input id="thickness" type="range" min="1" max="10" value="2">
+                    </label>
+                    <button id="eraser" class="btn btn-primary" type="button">Eraser</button>
+                    <button id="clear" class="btn btn-primary" type="button">Clear</button>
+                </div>
+            <canvas id="drawingCanvas" width="400" height="400" style="border:1px solid #000;"></canvas>
+            <input id="drawing_data" name="drawing_data" type="hidden" value="">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Add Todo</button>
+    </form>
+{% endblock %}

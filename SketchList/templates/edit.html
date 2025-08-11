@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <h2>Edit Todo</h2>
+
+    <form method="post">
+        <div class="mb-3">
+            <label class="form-label">Title:</label>
+            <input name="title" placeholder="Title" value="{{ todo.title }}">
+            <br>
+            <label>Todo:</label>
+            <textarea id="description" name="description" placeholder="Description">{{ todo.description }}</textarea>
+        </div>
+        <div class="mb-3">
+            <div class="mb-3">
+                <label class="form-label">Sketch (optional):</label>
+                    <!-- Drawing tools for user -->
+                    <label class="form-label">Color:
+                    <input id="colorPicker" type="color" value="#000000">
+                    </label>
+                    <label class="form-label">Thickness: 
+                    <input id="thickness" type="range" min="1" max="10" value="2">
+                    </label>
+                    <button id="eraser" class="btn btn-primary" type="button">Eraser</button>
+                    <button id="clear" class="btn btn-primary" type="button">Clear</button>
+            </div>
+            <canvas id="drawingCanvas" width="400" height="400" style="border:1px solid #000;"></canvas>
+            <input id="drawing_data" name="drawing_data" type="hidden" value="{{ drawing_data }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+    <p><a href="{{ url_for('index') }}">Back to Todo</a></p>
+{% endblock %}

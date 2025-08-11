@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block main %}
+    <h2>Your Todos</h2>
+{% if todos %}
+    <div class="align-left">
+        <ul class="todo_list">
+            {% for todo in todos %}
+                <li class="{{ 'done' if todo.completed else '' }}">
+                    <h5>{{ todo.title }}</h5>
+                    <p>{{ todo.description }}</p>
+
+                    {% if todo.drawing_url %}
+                        <img src="{{ todo.drawing_url }}" class="rounded d-block" alt="drawing" width="200">
+                    {% endif %}
+
+                    <div class="actions">
+                        <a href="{{ url_for('toggle_todo', todo_id=todo.id) }}">
+                            {{ 'Done' if todo.completed else 'Pending' }}
+                        </a>
+                        |
+                        <a href="{{ url_for('edit_todo', todo_id=todo.id) }}">Edit</a>
+                        |
+                        <a href="{{ url_for('delete_todo', todo_id=todo.id) }}">Delete</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+{% endblock %}

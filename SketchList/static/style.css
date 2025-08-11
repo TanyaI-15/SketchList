@@ -1,0 +1,38 @@
+.align-left {
+    text-align: left;
+}
+
+.custom-navbar {
+    background-color: rgb(133, 206, 133);
+    padding: 5rem;
+}
+
+html body {
+    display: flex;
+    background-color: rgb(211, 185, 197);
+    border: 3px solid black;
+    flex-direction: column;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    font-weight: 400;
+    height: 100%;
+    line-height: 1.5;
+    margin: 0;
+    min-height: 100vh;
+    padding: 0;
+}
+
+html footer {
+    border: 0.5px solid black;
+    color: rgb(84, 167, 84);
+    font-family: cursive;
+    font-style: italic;
+}
+
+input {
+    background-color: rgb(219, 185, 197);
+}
+
+textarea {
+    background-color: rgb(219, 185, 197);
+}

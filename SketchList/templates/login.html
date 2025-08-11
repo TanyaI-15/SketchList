@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <h4>LogIn</h4>
+    <form action="{{ url_for('login') }}" method="post">
+        <div>
+            <label for="identifier">Email or Username</label>
+            <input autofocus autocomplete="off" id="identifier" name="identifier" placeholder="Enter email or username" type="text">
+        </div>
+        <br>
+        <div>
+            <label for="password">Password</label>
+            <input autofocus autocomplete="off" id="passwordLogin" class="password" name="password" placeholder="Password" type="password">
+        </div>
+        <br>
+        <label class="form-check-label" for="showLogin">Show Password</label>
+        <input class="form-check-input" id="showLogin" type="checkbox">
+        <button class="btn btn-primary" type="submit">LogIn</button>
+        <br>
+    </form>
+    <p>New here? <a href="{{ url_for('register') }}">Create Account</a></p>
+
+    <hr>
+
+    <h5>Forgot Password?</h5>
+    <!-- Button to toggle the form -->
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#myFormCollapse" aria-expanded="false" aria-controls="myFormCollapse">
+        Login with Security Question.
+    </button>
+    <div class="collapse mt-3" id="myFormCollapse">
+        <form action="/login" method="post">
+            <label>Email</label>
+            <input id="identifier" name="identifier" type="text">
+            <button class="btn btn-primary" name="action" type="submit" value="get_question">Next</button>        
+        </form>
+    </div>
+
+    {% if question %}
+        <form action="/login" method="post">
+            <input name="identifier"  type="hidden" value="{{ identifier }}">
+            <label for="security_answer">Security Question:</label>
+            <p><strong>{{ question }}</strong></p>
+            <input autofocus autocomplete="off" id="security_answer" name="security_answer" placeholder="Security Answer">
+            <button class="btn btn-primary" name="action" type="submit" value="security_answer">
+                Login with Answer
+            </button>
+        </form>
+    {% endif %}
+{% endblock %}

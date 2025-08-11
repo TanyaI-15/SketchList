@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <h2>Create Account</h2>
+    <form action="{{ url_for('register') }}" method="post">
+        <div>
+            <label for="email">Email</label>
+            <input autofocus autocomplete="off" id="email" name="email" placeholder="Email" type="email">
+        </div>
+        <br>
+        <div>
+            <label>Username</label>
+            <input autofocus autocomplete="off" id="username" name="username" placeholder="Username" type="text">
+        </div>
+        <br>
+        <div>
+            <label for="password">Password</label>
+            <input autofocus autocomplete="off" class="password" id="password" name="password" placeholder="Password" type="password">
+        </div>
+        <br>
+        <div>
+            <label for="password">Confirm password</label>
+            <input autofocus autocomplete="off" class="password" id="confirm" name="confirm" placeholder="Confirm password" type="password">
+        </div>
+        <br>
+        <div>
+            <label for="security_question">Security Question:</label>
+            <select class="form-select" id="security_question" name="security_question">
+                <option  placeholder="Select One" value="">--Select One--</option>
+                <br>
+                <option value="What is your favorite number?">What is your favorite number?</option>
+                <option value="Where  do you enjoy being the most?">Where  do you enjoy being the most?</option>
+                <option value="What is your favorite animal?">What is your favorite animal?</option>
+            </select>
+            <br>
+            <label for="security_answer">Your Answer:</label>
+            <br>
+            <input autofocus autocomplete="off" id="security_answer" name="security_answer" placeholder="Securityanswer" type="text">
+        </div>
+        <br>
+        <label class="form-check-label" for="showRegisterPassword">Show Password</label>
+        <input class="form-check-input" id="showRegisterPassword" type="checkbox">
+        <button class="btn btn-primary" type="submit">Register</button>
+        <p>Already have an account?<a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" 
+            href="{{ url_for('login') }}">Click LogIn.</a></p>
+    </form>
+{% endblock %}
